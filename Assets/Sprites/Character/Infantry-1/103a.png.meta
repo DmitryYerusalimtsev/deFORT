@@ -1,0 +1,108 @@
+fileFormatVersion: 2
+guid: 87184cf452e9fc04a9f0abeed0556949
+TextureImporter:
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: 103a_0
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 153
+        width: 252
+        height: 301
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: 103a_1
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 310
+        width: 255
+        height: 102
+      alignment: 9
+      pivot: {x: .193321675, y: .292785048}
+    - name: 103a_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 182
+        width: 137
+        height: 111
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: 103a_3
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 182
+        width: 70
+        height: 52
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: 103a_4
+      rect:
+        serializedVersion: 2
+        x: 632
+        y: 50
+        width: 168
+        height: 258
+      alignment: 4
+      pivot: {x: 0, y: .5}
+    - name: 103a_5
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 0
+        width: 127
+        height: 120
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: 103a_6
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 2
+        width: 103
+        height: 106
+      alignment: 0
+      pivot: {x: .5, y: .5}
+  spritePackingTag: 
+  userData: 
