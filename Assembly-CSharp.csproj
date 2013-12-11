@@ -5,7 +5,7 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{1E2885EC-77BF-2A77-8234-474C77C00542}</ProjectGuid>
+	<ProjectGuid>{0C5A56A5-4C34-248C-85FB-DF5BB9AE696A}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -19,7 +19,7 @@
 	<DebugType>full</DebugType>
 	<Optimize>false</Optimize>
 	<OutputPath>Temp\bin\Debug\</OutputPath>
-	<DefineConstants>DEBUG;TRACE;UNITY_STANDALONE_WIN;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_AUDIO_FMOD;UNITY_STANDALONE;ENABLE_MONO;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_GENERICS;ENABLE_SUBSTANCE;INCLUDE_WP8SUPPORT;ENABLE_MOVIES;ENABLE_WWW;ENABLE_IMAGEEFFECTS;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_2D_PHYSICS;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_DUCK_TYPING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;UNITY_4_3_0;UNITY_4_3;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_WIN</DefineConstants>
+	<DefineConstants>DEBUG;TRACE;UNITY_STANDALONE_WIN;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_AUDIO_FMOD;UNITY_STANDALONE;ENABLE_MONO;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_GENERICS;ENABLE_SUBSTANCE;INCLUDE_WP8SUPPORT;ENABLE_MOVIES;ENABLE_WWW;ENABLE_IMAGEEFFECTS;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_2D_PHYSICS;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_DUCK_TYPING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;UNITY_4_3_1;UNITY_4_3;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_WIN</DefineConstants>
 	<ErrorReport>prompt</ErrorReport>
 	<WarningLevel>4</WarningLevel>
 	<NoWarn>0169</NoWarn>
@@ -39,10 +39,10 @@
 	<Reference Include="System.Core" />
 	<Reference Include="System.Xml.Linq" />
 	<Reference Include="UnityEngine">
-	  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
+	  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
 	</Reference>
 	<Reference Include="UnityEditor">
-	  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
+	  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
 	</Reference>
   </ItemGroup>
   <ItemGroup>
@@ -53,7 +53,41 @@
      <Compile Include="Assets\Scripts\Game.cs" />
      <Compile Include="Assets\Scripts\Health.cs" />
      <Compile Include="Assets\Scripts\Line.cs" />
+     <Compile Include="Assets\Scripts\Networking\GUIHelper.cs" />
+     <Compile Include="Assets\Scripts\Networking\GameInitializer.cs" />
+     <Compile Include="Assets\Scripts\Networking\MainMenu.cs" />
+     <Compile Include="Assets\Scripts\Networking\MainMenuView.cs" />
      <Compile Include="Assets\Scripts\Pauser.cs" />
+     <Compile Include="Assets\Scripts\Photon Unity Networking\Plugins\PhotonNetwork\CustomTypes.cs" />
+     <Compile Include="Assets\Scripts\Photon Unity Networking\Plugins\PhotonNetwork\Enums.cs" />
+     <Compile Include="Assets\Scripts\Photon Unity Networking\Plugins\PhotonNetwork\Extensions.cs" />
+     <Compile Include="Assets\Scripts\Photon Unity Networking\Plugins\PhotonNetwork\FriendInfo.cs" />
+     <Compile Include="Assets\Scripts\Photon Unity Networking\Plugins\PhotonNetwork\LoadbalancingPeer.cs" />
+     <Compile Include="Assets\Scripts\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs" />
+     <Compile Include="Assets\Scripts\Photon Unity Networking\Plugins\PhotonNetwork\PhotonClasses.cs" />
+     <Compile Include="Assets\Scripts\Photon Unity Networking\Plugins\PhotonNetwork\PhotonHandler.cs" />
+     <Compile Include="Assets\Scripts\Photon Unity Networking\Plugins\PhotonNetwork\PhotonLagSimulationGui.cs" />
+     <Compile Include="Assets\Scripts\Photon Unity Networking\Plugins\PhotonNetwork\PhotonNetwork.cs" />
+     <Compile Include="Assets\Scripts\Photon Unity Networking\Plugins\PhotonNetwork\PhotonPlayer.cs" />
+     <Compile Include="Assets\Scripts\Photon Unity Networking\Plugins\PhotonNetwork\PhotonStatsGui.cs" />
+     <Compile Include="Assets\Scripts\Photon Unity Networking\Plugins\PhotonNetwork\PhotonView.cs" />
+     <Compile Include="Assets\Scripts\Photon Unity Networking\Plugins\PhotonNetwork\PingCloudRegions.cs" />
+     <Compile Include="Assets\Scripts\Photon Unity Networking\Plugins\PhotonNetwork\Room.cs" />
+     <Compile Include="Assets\Scripts\Photon Unity Networking\Plugins\PhotonNetwork\RoomInfo.cs" />
+     <Compile Include="Assets\Scripts\Photon Unity Networking\Plugins\PhotonNetwork\RpcIndexComponent.cs" />
+     <Compile Include="Assets\Scripts\Photon Unity Networking\Plugins\PhotonNetwork\ServerSettings.cs" />
+     <Compile Include="Assets\Scripts\Photon Unity Networking\UtilityScripts\ConnectAndJoinRandom.cs" />
+     <Compile Include="Assets\Scripts\Photon Unity Networking\UtilityScripts\DontDestroyOnLoad.cs" />
+     <Compile Include="Assets\Scripts\Photon Unity Networking\UtilityScripts\InputToEvent.cs" />
+     <Compile Include="Assets\Scripts\Photon Unity Networking\UtilityScripts\ManualPhotonViewAllocator.cs" />
+     <Compile Include="Assets\Scripts\Photon Unity Networking\UtilityScripts\OnAwakeUsePhotonView.cs" />
+     <Compile Include="Assets\Scripts\Photon Unity Networking\UtilityScripts\OnClickDestroy.cs" />
+     <Compile Include="Assets\Scripts\Photon Unity Networking\UtilityScripts\OnClickInstantiate.cs" />
+     <Compile Include="Assets\Scripts\Photon Unity Networking\UtilityScripts\OnClickLoadSomething.cs" />
+     <Compile Include="Assets\Scripts\Photon Unity Networking\UtilityScripts\PointedAtGameObjectInfo.cs" />
+     <Compile Include="Assets\Scripts\Photon Unity Networking\UtilityScripts\ServerTime.cs" />
+     <Compile Include="Assets\Scripts\Photon Unity Networking\UtilityScripts\TestBase.cs" />
+     <Compile Include="Assets\Scripts\Photon Unity Networking\UtilityScripts\TimeKeeper.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
      <Compile Include="Assets\Scripts\RestServerQuery.cs" />
      <Compile Include="Assets\Scripts\Scores.cs" />
@@ -62,6 +96,13 @@
      <Compile Include="Assets\Scripts\Unit.cs" />
      <Compile Include="Assets\Scripts\UnitBuilding.cs" />
      <Compile Include="Assets\Scripts\UserInterface.cs" />
+     <None Include="Assets\Scripts\Photon Unity Networking\Plugins\PhotonNetwork\library\release_history.txt" />
+     <None Include="Assets\Scripts\Photon Unity Networking\changelog.txt" />
+     <None Include="Assets\Scripts\Photon Unity Networking\Plugins\PhotonNetwork\library\Photon3Unity3D.xml" />
+     <None Include="Assets\Scripts\Photon Unity Networking\readme.txt" />
+ <Reference Include="Photon3Unity3D">
+ <HintPath>Assets\Scripts\Photon Unity Networking\Plugins\PhotonNetwork\library\Photon3Unity3D.dll</HintPath>
+ </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
