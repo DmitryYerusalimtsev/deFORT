@@ -1,9 +1,9 @@
 using UnityEngine;
 using System.Collections;
 
-public class MainMenu : MonoBehaviour
+public class Lobby : MonoBehaviour
 {
-	private MainMenuView menuRenderer = new MainMenuView();
+	private LobbyView menuRenderer = new LobbyView();
 
 	void Awake()
 	{

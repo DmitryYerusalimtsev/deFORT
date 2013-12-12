@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class MainMenuView
+public class LobbyView
 {
 	private string roomName = "my room";
 	private Vector2 scrollPosition = Vector2.zero;

@@ -52,11 +52,11 @@
      <Compile Include="Assets\Scripts\Entrance.cs" />
      <Compile Include="Assets\Scripts\Game.cs" />
      <Compile Include="Assets\Scripts\Health.cs" />
+     <Compile Include="Assets\Scripts\Helpers\GUIHelper.cs" />
      <Compile Include="Assets\Scripts\Line.cs" />
-     <Compile Include="Assets\Scripts\Networking\GUIHelper.cs" />
      <Compile Include="Assets\Scripts\Networking\GameInitializer.cs" />
-     <Compile Include="Assets\Scripts\Networking\MainMenu.cs" />
-     <Compile Include="Assets\Scripts\Networking\MainMenuView.cs" />
+     <Compile Include="Assets\Scripts\Networking\Lobby.cs" />
+     <Compile Include="Assets\Scripts\Networking\LobbyView.cs" />
      <Compile Include="Assets\Scripts\Pauser.cs" />
      <Compile Include="Assets\Scripts\Photon Unity Networking\Plugins\PhotonNetwork\CustomTypes.cs" />
      <Compile Include="Assets\Scripts\Photon Unity Networking\Plugins\PhotonNetwork\Enums.cs" />
