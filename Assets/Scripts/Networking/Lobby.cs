@@ -14,7 +14,7 @@ public class Lobby : MonoBehaviour
 	{
 		if (!PhotonNetwork.connected)
 		{
-			PhotonNetwork.ConnectUsingSettings("v1.0");
+			PhotonNetwork.ConnectUsingSettings("0.1");
 		}
 
 		PhotonNetwork.playerName = PlayerPrefs.GetString("playerName", "Guest" + Random.Range(1, 9999));

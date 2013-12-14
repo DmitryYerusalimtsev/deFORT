@@ -53,7 +53,7 @@ public class LobbyView
 		
 		if (GUILayout.Button("GO"))
 		{
-			PhotonNetwork.CreateRoom(roomName, true, true, 10);
+			PhotonNetwork.CreateRoom(roomName, true, true, 2);
 		}
 		
 		GUILayout.EndHorizontal();

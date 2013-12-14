@@ -2,83 +2,102 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using System.Collections;
 
 public class GameInitializer : Photon.MonoBehaviour
 {
 	private PhotonView photonView;
-	private PlayerWrapper localPlayer;
-	private Dictionary<int, PlayerWrapper> players;
-	
-	void Awake()
+	private List<PlayerWrapper> players;
+	private PlayerWrapper player;
+	private Room room;
+	private bool renderStartButton = false;
+
+	void Awake() 
 	{
 		photonView = PhotonView.Get(this);
-		localPlayer = new PlayerWrapper(PhotonNetwork.player);
-		players = new Dictionary<int, PlayerWrapper>();
-		
-		AddPlayer(localPlayer);
+		players = new List<PlayerWrapper>();
+	}
+
+	void OnJoinedRoom()
+	{
+		room = PhotonNetwork.room;
+		player = new PlayerWrapper(PhotonNetwork.player);
+		players.Add (player);
+
+		var otherPlayers = PhotonNetwork.otherPlayers
+										.Select(x => new PlayerWrapper(x));
+
+		players.AddRange(otherPlayers);	
 	}
 	
-	private void AddPlayer(PlayerWrapper player)
+	private bool IsGameLoadingFinished
 	{
-		players.Add(player.Id, player);
-	}
-	
-	void OnPhotonPlayerConnected(PhotonPlayer player)
-	{
-		if (players.Count > 1)
+		get 
 		{
-			// Drop player from room.
-			return;
+			return players.Count == room.maxPlayers 
+				&& players.All (x => x.IsLoadingFinished);
 		}
-		
-		RenderStartButton();
-		
-		AddPlayer(new PlayerWrapper(player));
 	}
-	
+
+	private bool IsGameReadyForLoading
+	{
+		get
+		{
+			return players.Count == room.maxPlayers 
+				&& players.All (x => x.IsReadyForLoading);
+		}
+	}
+
 	void OnPhotonPlayerDisconnected(PhotonPlayer player)
 	{
+		//Stop game
+	}
+
+	void OnPhotonPlayerConnected(PhotonPlayer photonPlayer)
+	{
+		players.Add (new PlayerWrapper(photonPlayer));				
 		
+		if (players.Count == PhotonNetwork.room.maxPlayers) 
+		{
+			networkView.RPC ("RenderStartButton", PhotonTargets.All);
+		}
+	}
+
+	[RPC]
+	void RenderStartButton()
+	{
+		renderStartButton = true;
+	}
+
+	void OnPhotonPlayerPropertiesChanged(PhotonPlayer player)
+	{
+		if (IsGameReadyForLoading)
+		{
+			// load scene
+		}
+
+		if (IsGameLoadingFinished)
+		{
+			// go game :D
+		}
 	}
 	
-	private void RenderStartButton()
+	void OnGUI() 
 	{
-		if (GUILayout.Button("Start game"))
+		GUILayout.Label(PhotonNetwork.connectionStateDetailed.ToString());
+
+		if (renderStartButton)
 		{
-			photonView.RPC("OnPlayerReadyForLoading", PhotonTargets.All, localPlayer.Id);
-			
-			if (players.Values.All(x => x.IsReadyForLoading))
+			if (GUILayout.Button ("Start game"))
 			{
-				photonView.RPC("LoadGame", PhotonTargets.All);
+				player.IsReadyForLoading = true;
 			}
 		}
-	}
-	
-	[RPC]
-	void OnPlayerReadyForLoading(int playerId)
-	{
-		players[playerId].IsReadyForLoading = true;
-	}
-	
-	[RPC]
-	void LoadGame()
-	{
-		// Loading goes here.
-		// Load necessary data about all players.
-		// Init all necessary objects;
-		
-		photonView.RPC("OnLoadingFinished", PhotonTargets.All, localPlayer.Id);
-		
-		if (players.Values.All(x => x.IsLoadingFinished))
+
+		if (player != null)
 		{
-			photonView.RPC("StartGame", PhotonTargets.All);
+			GUILayout.Label("Player joined: " + player.Name);
 		}
-	}
-	
-	[RPC]
-	void OnLoadingFinished(int playerId)
-	{
-		players[playerId].IsReadyForLoading = true;
 	}
 	
 	private class PlayerWrapper
@@ -88,14 +107,39 @@ public class GameInitializer : Photon.MonoBehaviour
 		public PlayerWrapper(PhotonPlayer player)
 		{
 			this.player = player;
+			IsReadyForLoading = false;
+			IsLoadingFinished = false;
 		}
 		
 		public int Id { get { return player.ID; } }
 		
 		public string Name { get { return player.name; } }
+
+		public bool IsMasterClient { get { return player.isMasterClient; } } 
 		
-		public bool IsReadyForLoading { get; set; }
+		public bool IsReadyForLoading 
+		{ 
+			get { return GetCustomProperty<bool>("IsReadyForLoading"); }  
+			set { SetCustomProperty("IsReadyForLoading", value); } 
+		}
 		
-		public bool IsLoadingFinished { get; set; }
+		public bool IsLoadingFinished 
+		{ 
+			get { return GetCustomProperty<bool>("IsLoadingFinished"); } 
+			set { SetCustomProperty("IsLoadingFinished", value); }
+		}
+
+		private T GetCustomProperty<T>(string key)
+		{
+			return (T) player.customProperties[key];
+		}
+
+		private void SetCustomProperty(string key, object value)
+		{
+			var properties = new Hashtable();
+			properties.Add(key, value);
+
+			player.SetCustomProperties(properties);
+		}
 	}
 }
