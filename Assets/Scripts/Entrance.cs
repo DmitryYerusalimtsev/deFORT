@@ -3,7 +3,7 @@ using System.Collections;
 using SimpleJSON;
 using Server;
 using System.Collections.Generic;
-using UnityEditor;
+//using UnityEditor;
 using Defort;
 
 public enum Window
@@ -110,12 +110,12 @@ public class Entrance : MonoBehaviour
                                 try
                                 {
                                     string localPath = "Assets/Prefabs/Units/" + allUnitsNode[i]["Name"] + ".prefab";
-                                    GameObject unit = AssetDatabase.LoadAssetAtPath(localPath, typeof(GameObject)) as GameObject;
-                                    if (unit != null)
-                                    {
-                                        GUIUnit(unit, allUnits);
-                                        allUnits.Add(unit);
-                                    }
+                                    //GameObject unit = AssetDatabase.LoadAssetAtPath(localPath, typeof(GameObject)) as GameObject;
+                                    //if (unit != null)
+                                    //{
+                                    //   GUIUnit(unit, allUnits);
+                                    //    allUnits.Add(unit);
+                                    //}
                                 }
                                 catch
                                 {
@@ -127,10 +127,10 @@ public class Entrance : MonoBehaviour
                         }
                         else
                         {
-                            if (EditorUtility.DisplayDialog("Login", "Wrong login or password", "OK"))
-                            {
-                                results = null;
-                            }
+                            //if (EditorUtility.DisplayDialog("Login", "Wrong login or password", "OK"))
+                            //{
+                            //    results = null;
+                            //}
                             Debug.LogError(node["Errors"]);
                         }
                     }
@@ -153,9 +153,9 @@ public class Entrance : MonoBehaviour
                 Application.LoadLevel("Game");
             }
 
-            Handles.BeginGUI();
+            //Handles.BeginGUI();
             //Handles.DrawBezier(windowRect.center, windowRect2.center, new Vector2(windowRect.xMax + 50f,windowRect.center.y), new Vector2(windowRect2.xMin - 50f,windowRect2.center.y),Color.red,null,5f);
-            Handles.EndGUI();
+            //Handles.EndGUI();
 
             foreach (GameObject unit in Game.Units)
             {
