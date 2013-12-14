@@ -60,6 +60,7 @@ public class GameInitializer : Photon.MonoBehaviour
 		if (players.Count == PhotonNetwork.room.maxPlayers) 
 		{
 			networkView.RPC ("RenderStartButton", PhotonTargets.All);
+
 		}
 	}
 
@@ -73,7 +74,7 @@ public class GameInitializer : Photon.MonoBehaviour
 	{
 		if (IsGameReadyForLoading)
 		{
-			// load scene
+			Application.LoadLevel("Game");
 		}
 
 		if (IsGameLoadingFinished)
@@ -96,8 +97,17 @@ public class GameInitializer : Photon.MonoBehaviour
 
 		if (player != null)
 		{
-			GUILayout.Label("Player joined: " + player.Name);
+			GUILayout.Label("Player name: " + player.Name);
 		}
+
+		GUIHelper.RenderInsideArea(() =>
+	    {
+			GUILayout.Label("Players:");
+			foreach (var playerWrapper in players)
+			{
+				GUILayout.Label(playerWrapper.Name + " Ready: " + playerWrapper.IsReadyForLoading);
+			}
+		});
 	}
 	
 	private class PlayerWrapper

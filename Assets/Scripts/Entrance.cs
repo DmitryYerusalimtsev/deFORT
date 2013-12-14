@@ -3,7 +3,7 @@ using System.Collections;
 using SimpleJSON;
 using Server;
 using System.Collections.Generic;
-using UnityEditor;
+//using UnityEditor;
 using Defort;
 
 public enum Window
@@ -16,7 +16,7 @@ public enum Window
 
 public class Entrance : MonoBehaviour
 {
-
+/*
     string serverUrl = "http://defortrest.somee.com";
 
     Window window = Window.Login;
@@ -186,5 +186,5 @@ public class Entrance : MonoBehaviour
         var sr = unit.transform.Find("unit-sprite");
         var sprite = sr.GetComponent<SpriteRenderer>();
         GUILayout.Button(sprite.sprite.texture, GUILayout.MaxWidth(150), GUILayout.MaxHeight(150));
-    }
+    }*/
 }
